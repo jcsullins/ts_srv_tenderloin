@@ -446,19 +446,21 @@ void calc_point()
 	yval = 1024.0-avgy*1024/39;
 #endif
 
-	/* Single touch signals */
-	send_uevent(uinput_fd, EV_ABS, ABS_X, xval);
-	send_uevent(uinput_fd, EV_ABS, ABS_Y, yval);
-	send_uevent(uinput_fd, EV_ABS, ABS_PRESSURE, 1);
-	send_uevent(uinput_fd, EV_ABS, ABS_TOOL_WIDTH, 10);
-	send_uevent(uinput_fd, EV_KEY, BTN_TOUCH, 1);
+	if (tweight > 200) {
+		/* Single touch signals */
+		send_uevent(uinput_fd, EV_ABS, ABS_X, xval);
+		send_uevent(uinput_fd, EV_ABS, ABS_Y, yval);
+		send_uevent(uinput_fd, EV_ABS, ABS_PRESSURE, 1);
+		send_uevent(uinput_fd, EV_ABS, ABS_TOOL_WIDTH, 10);
+		send_uevent(uinput_fd, EV_KEY, BTN_TOUCH, 1);
 
-	send_uevent(uinput_fd, EV_SYN, SYN_REPORT, 0);
-	
+		send_uevent(uinput_fd, EV_SYN, SYN_REPORT, 0);
+		
 #if DEBUG
-	printf("Coords %lf, %lf, %lf, %lf, %d\n",
-			avgx,avgy, xval, yval, tweight);
+		printf("Coords %lf, %lf, %lf, %lf, %d\n",
+				avgx,avgy, xval, yval, tweight);
 #endif
+	}
 
 }
 #endif
