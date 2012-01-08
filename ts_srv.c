@@ -46,7 +46,7 @@
 #include <math.h>
 #include <sys/select.h>
 
-#if 0
+#if 1
 // This is for Android (or OS using Android kernel)
 #define UINPUT_LOCATION "/dev/uinput"
 #else
@@ -57,15 +57,15 @@
 /* Set to 1 to print coordinates to stdout. */
 #define DEBUG 0
 #define DEBUGMORE 0
-#define SENDTRACK 0
+#define SENDTRACK 1
 
 #define INVERTXY 1
 
 /* Set to 1 to see raw data from the driver */
 #define RAW_DATA_DEBUG 0
 
-#define WANT_MULTITOUCH 0
-#define WANT_SINGLETOUCH 1
+#define WANT_MULTITOUCH 1
+#define WANT_SINGLETOUCH 0
 
 #define RECV_BUF_SIZE 1540
 #define LIFTOFF_TIMEOUT 40000 /* 20ms */
