@@ -374,11 +374,11 @@ void calc_point()
 
 
 #if INVERTXY
-		yval = 768 - avgx*768/29;
-		xval = 1024 - avgy*1024/39;
+		yval = 768 - avgi*768/29;
+		xval = 1024 - avgj*1024/39;
 #else
-		xval = avgx*768/29;
-		yval = 1024.0-avgy*1024/39;
+		xval = avgi*768/29;
+		yval = 1024.0-avgj*1024/39;
 #endif
 
 #if SEND_TRACK
