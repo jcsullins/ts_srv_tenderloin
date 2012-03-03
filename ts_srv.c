@@ -57,7 +57,7 @@
 /* Set to 1 to print coordinates to stdout. */
 #define DEBUG 0
 #define DEBUGMORE 0
-#define SENDTRACK 1
+#define SEND_TRACK 1
 
 #define INVERTXY 1
 
