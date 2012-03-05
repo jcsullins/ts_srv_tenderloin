@@ -57,7 +57,7 @@
 /* Set to 1 to print coordinates to stdout. */
 #define DEBUG 0
 #define DEBUGMORE 0
-#define SENDTRACK 1
+#define SEND_TRACK 1
 
 #define INVERTXY 1
 
@@ -598,11 +598,11 @@ void open_uinput()
     device.absflat[ABS_PRESSURE] = 0;
 #if WANT_MULTITOUCH
 #if INVERTXY
-    device.absmax[ABS_MT_POSITION_Y] = 1024;
-    device.absmax[ABS_MT_POSITION_X] = 768;
-#else
     device.absmax[ABS_MT_POSITION_X] = 1024;
     device.absmax[ABS_MT_POSITION_Y] = 768;
+#else
+    device.absmax[ABS_MT_POSITION_X] = 768;
+    device.absmax[ABS_MT_POSITION_Y] = 1024;
 #endif
     device.absmin[ABS_MT_POSITION_X] = 0;
     device.absfuzz[ABS_MT_POSITION_X] = 1;
