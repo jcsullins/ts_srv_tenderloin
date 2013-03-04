@@ -682,15 +682,16 @@ int main(int argc, char** argv)
 	fd_set fdset;
 	struct timeval seltmout;
 
-	if (touchscreen_power(1)) {
-		printf("Unable to enable touchscreen power\n");
-		return 1;
-	}
 
 	uart_fd = open("/dev/ctp_uart", O_RDONLY|O_NONBLOCK);
 	if (uart_fd <= 0)
 	{
 		printf("Could not open uart\n");
+		return 1;
+	}
+
+	if (touchscreen_power(1)) {
+		printf("Unable to enable touchscreen power\n");
 		return 1;
 	}
 
